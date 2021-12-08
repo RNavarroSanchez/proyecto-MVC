@@ -3,7 +3,7 @@ class Comment extends Model
 {
     public function create($body)
     {
-        $sql = "INSERT INTO comments (body, created_at, updated_at) VALUES (:body, :created_at, :updated_at)";
+        $sql = "INSERT INTO comments (user_id, post_id, body, created_at, updated_at) VALUES (:user_id, :post_id, :body, :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
@@ -42,7 +42,18 @@ class Comment extends Model
             print_r($e->getMessage());
         }
     }
-
+    public function showAllUsers()
+    {
+        $sql = "SELECT * FROM users";
+        try{
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
     public function edit($id, $title, $description)
     {
         $sql = "UPDATE comments SET title = :title, description = :description , updated_at = :updated_at WHERE comment_id = :comment_id";

@@ -6,7 +6,7 @@ class commentsController extends Controller
     {
         require(ROOT . 'Models/comment.php');
 
-        $comments = new comment();
+        $comments = new Comment();
 
         $d['comments'] = $comments->showAllcomments();
         $this->set($d);
@@ -19,21 +19,21 @@ class commentsController extends Controller
         {
             require(ROOT . 'Models/comment.php');
 
-            $comment= new comment();
+            $comment= new Comment();
 
             if ($comment->create($_POST["title"], $_POST["description"]))
             {
                 header("Location: " . WEBROOT . "comments/index");
             }
         }
-
+        
         $this->render("create");
     }
 
     function edit($id)
     {
         require(ROOT . 'Models/comment.php');
-        $comment= new comment();
+        $comment= new Comment();
 
         $d["comment"] = $comment->showcomment($id);
 
@@ -52,7 +52,7 @@ class commentsController extends Controller
     {
         require(ROOT . 'Models/comment.php');
 
-        $comment = new comment();
+        $comment = new Comment();
         if ($comment->delete($id))
         {
             header("Location: " . WEBROOT . "comments/index");

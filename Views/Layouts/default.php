@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/mvc_2">Inicio <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/proyecto-MVC">Inicio <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
