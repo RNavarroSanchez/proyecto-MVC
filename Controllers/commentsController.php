@@ -1,4 +1,5 @@
 <?php
+     
 
 class commentsController extends Controller
 {
@@ -15,11 +16,19 @@ class commentsController extends Controller
 
     function create()
     {
+        require (ROOT . 'Models/user.php');  
+
+        $users = new User();
+            
+            $d['users'] = $users->showAllUsers();
+            $this->set($d);
+
         if (isset($_POST["body"]))
         {
             require(ROOT . 'Models/comment.php');
 
             $comment= new Comment();
+            
 
             if ($comment->create($_POST["body"]))
             {

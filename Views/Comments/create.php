@@ -1,4 +1,4 @@
-<h1>Create comment</h1>
+<h1>Crear Comentario</h1>
 <form method='post' action='#'>
     <div class="form-group">
         <label for="title">Usuario</label>

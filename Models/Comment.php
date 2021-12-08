@@ -3,7 +3,7 @@ class Comment extends Model
 {
     public function create($body)
     {
-        $sql = "INSERT INTO comments (user_id, post_id, body, created_at, updated_at) VALUES (:user_id, :post_id, :body, :created_at, :updated_at)";
+        $sql = "INSERT INTO comments (user_id, 50, body, created_at, updated_at) VALUES (:user_id, :post_id, :body, :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
@@ -43,6 +43,7 @@ class Comment extends Model
         }
     }
    
+
     public function edit($id, $body)
     {
         $sql = "UPDATE comments SET body = :body , updated_at = :updated_at WHERE id = :id";
