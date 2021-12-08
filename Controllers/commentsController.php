@@ -15,18 +15,19 @@ class commentsController extends Controller
 
     function create()
     {
-        if (isset($_POST["title"]))
+        if (isset($_POST["body"]))
         {
             require(ROOT . 'Models/comment.php');
 
             $comment= new Comment();
 
-            if ($comment->create($_POST["title"], $_POST["description"]))
+            if ($comment->create($_POST["body"]))
             {
                 header("Location: " . WEBROOT . "comments/index");
             }
         }
         
+    
         $this->render("create");
     }
 
@@ -35,11 +36,11 @@ class commentsController extends Controller
         require(ROOT . 'Models/comment.php');
         $comment= new Comment();
 
-        $d["comment"] = $comment->showcomment($id);
+        $d["comment"] = $comment->showComment($id);
 
-        if (isset($_POST["title"]))
+        if (isset($_POST["body"]))
         {
-            if ($comment->edit($id, $_POST["title"], $_POST["description"]))
+            if ($comment->edit($id, $_POST["body"]))
             {
                 header("Location: " . WEBROOT . "comments/index");
             }
