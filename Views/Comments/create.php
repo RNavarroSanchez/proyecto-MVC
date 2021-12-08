@@ -1,4 +1,4 @@
-<h1>Create task</h1>
+<h1>Create comment</h1>
 <form method='post' action='#'>
     <div class="form-group">
         <label for="title">Title</label>

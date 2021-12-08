@@ -1,5 +1,5 @@
 <?php
-class Task extends Model
+class Comment extends Model
 {
     public function create($body)
     {
@@ -17,7 +17,7 @@ class Task extends Model
         }
     }
 
-    public function showTask($id)
+    public function showcomment($id)
     {
         $sql = "SELECT * FROM comments WHERE id =" . $id;
         try{
@@ -30,7 +30,7 @@ class Task extends Model
         }
     }
 
-    public function showAllTasks()
+    public function showAllcomments()
     {
         $sql = "SELECT * FROM comments";
         try{
@@ -45,11 +45,11 @@ class Task extends Model
 
     public function edit($id, $title, $description)
     {
-        $sql = "UPDATE tasks SET title = :title, description = :description , updated_at = :updated_at WHERE task_id = :task_id";
+        $sql = "UPDATE comments SET title = :title, description = :description , updated_at = :updated_at WHERE comment_id = :comment_id";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
-                'task_id' => $id,
+                'comment_id' => $id,
                 'title' => $title,
                 'description' => $description,
                 'updated_at' => date('Y-m-d H:i:s')

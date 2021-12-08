@@ -11,7 +11,7 @@ class Dispatcher
         Router::parse($this->request->url, $this->request);
 
         $controllers= array(
-            'tasks'=>['index','create','edit','delete','error']
+            'comments'=>['index','create','edit','delete','error']
             );
         
         if (array_key_exists($this->request->controller, $controllers)) {
@@ -19,12 +19,12 @@ class Dispatcher
                 $controller = $this->loadController();
                 call_user_func_array([$controller, $this->request->action], $this->request->params);
             }else{
-                $this->request->controller = "tasks";
+                $this->request->controller = "comments";
                 $controller = $this->loadController();
                 call_user_func_array([$controller,"error"], array('<strong>ERROR:</strong> la acción no existe'));
             }
         }else{
-            $this->request->controller = "tasks";
+            $this->request->controller = "comments";
             $controller = $this->loadController();
             call_user_func_array([$controller,"error"], array('<strong>ERROR:</strong> el controlador no existe'));
         }        

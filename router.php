@@ -9,7 +9,7 @@ class Router
 
         if ($url == WEBROOT)
         {
-            $request->controller = "tasks";
+            $request->controller = "comments";
             $request->action = "index";
             $request->params = [];
         }
@@ -19,7 +19,7 @@ class Router
             $explode_url = array_slice($explode_url, 2);
             //var_dump($explode_url);
             if (count($explode_url)<2){
-                $request->controller = "tasks";
+                $request->controller = "comments";
                 $request->action = "error";
                 $request->params = ['<strong>ERROR:</strong> URL INVALIDA'];
             }else{
@@ -28,7 +28,7 @@ class Router
                 $request->params = (null !== array_slice($explode_url, 2)) ? array_slice($explode_url, 2) : '';
                 // controlar que faltan parametros en acciones editar y borrar
                 if (($request->action == "delete" or $request->action == "edit") && (empty($request->params))){
-                    $request->controller = "tasks";
+                    $request->controller = "comments";
                     $request->action = "error";
                     $request->params = ['<strong>ERROR:</strong> FALTAN PARAMETROS'];
                 }
