@@ -10,7 +10,7 @@ class User extends Model
                 'email' => $email,
                 'name' => $name,
                 'password' =>$password,
-                'remember_token' =>bin2hex(openssl_random_pseudo_bytes(64)),
+                'remember_token' => "roberto",
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);

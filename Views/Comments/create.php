@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <label for="comments">Comentarios</label>
-        <input type="text" class="form-control" id="description" placeholder="Añade un comentario" name="comment">
+        <input type="text" class="form-control" id="body" placeholder="Añade un comentario" name="body">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

@@ -1,13 +1,15 @@
 <?php
-class Comment extends Model
+class Post extends Model
 {
-    public function create($body)
+    public function create($title,$status,$user_id)
     {
-        $sql = "INSERT INTO comments (user_id, post_id, body, created_at, updated_at) VALUES (:user_id, :post_id, :body, :created_at, :updated_at)";
+        $sql = "INSERT INTO users (id, status , title , user_id , created_at, updated_at) VALUES (:id, :status , :title , :user_id , :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
-                'body' => $body,
+                'status' => $status,
+                'title' => $title,
+                'user_id' =>$user_id,
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
@@ -17,9 +19,9 @@ class Comment extends Model
         }
     }
 
-    public function showComment($id)
+    public function showPost($id)
     {
-        $sql = "SELECT * FROM comments WHERE id =" . $id;
+        $sql = "SELECT id FROM posts WHERE id =" . $id;
         try{
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
@@ -30,9 +32,9 @@ class Comment extends Model
         }
     }
 
-    public function showAllcomments()
+    public function showAllPosts()
     {
-        $sql = "SELECT * FROM comments";
+        $sql = "SELECT * FROM posts";
         try{
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
@@ -43,26 +45,9 @@ class Comment extends Model
         }
     }
    
-
-    public function edit($id, $body)
-    {
-        $sql = "UPDATE comments SET body = :body , updated_at = :updated_at WHERE id = :id";
-        try{
-            $req = Database::getBdd()->prepare($sql);
-            return $req->execute([
-                'id' => $id,
-                'body' => $body,
-                'updated_at' => date('Y-m-d H:i:s')
-            ]);
-        }
-        catch(PDOException $e){
-            print_r($e->getMessage());
-        }
-    }
-
     public function delete($id)
     {
-        $sql = 'DELETE FROM comments WHERE id = ?';
+        $sql = 'DELETE FROM user WHERE id = ?';
         try{   
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([$id]);
