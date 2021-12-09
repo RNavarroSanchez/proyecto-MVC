@@ -1,8 +1,8 @@
-<h1>Tareas</h1>
+<h1>Usuarios</h1>
 <div class="row col-md-12 centered">
     <table class="table table-striped custab">
         <thead>
-        <a href="/proyecto-MVC/comments/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Añadir Comentario</a>
+        <a href="/proyecto-MVC/comments/create/" class="btn btn-primary btn-xs pull-right"><b>+</b> Añadir Usuario</a>
         <tr>
             <th>Email</th>
             <th>Nombre</th>

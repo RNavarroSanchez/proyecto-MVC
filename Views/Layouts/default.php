@@ -29,21 +29,21 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/proyecto-MVC/users">Users <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href=<?php echo WEBROOT . 'users/index' ?> >Users <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/proyecto-MVC">Post <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href=<?php echo WEBROOT . 'posts/index' ?> >Post <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/proyecto-MVC">Comentarios <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href=<?php echo WEBROOT . 'comments/index' ?> >Comentarios <span class="sr-only">(current)</span></a>
             </li>
         </ul>
     </div>

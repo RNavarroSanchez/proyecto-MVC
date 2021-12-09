@@ -9,7 +9,7 @@ class postsController extends Controller
 
         $posts = new Post();
 
-        $d['comments'] = $comments->showAllPosts();
+        $d['posts'] = $posts->showAllPosts();
         $this->set($d);
         $this->render("index");
     }
