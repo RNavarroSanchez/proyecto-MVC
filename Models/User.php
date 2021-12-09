@@ -3,14 +3,13 @@ class User extends Model
 {
     public function create($email,$name,$password)
     {
-        $sql = "INSERT INTO users (id, email , name , password, remember_token , created_at, updated_at) VALUES (:id, :email , :name , :password, :remember_token , :created_at, :updated_at)";
+        $sql = "INSERT INTO users (id, email , name , password, created_at, updated_at) VALUES (:id, :email , :name , :password, :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
                 'email' => $email,
                 'name' => $name,
-                'password' =>$password,
-                'remember_token' => "roberto",
+                'password' => md5($password),
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
