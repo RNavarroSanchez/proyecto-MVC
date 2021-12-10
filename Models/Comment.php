@@ -1,13 +1,16 @@
 <?php
 class Comment extends Model
 {
-    public function create($body)
+    public function create($body,$user_id,$post_id)
     {
-        $sql = "INSERT INTO comments (user_id, post_id, body, created_at, updated_at) VALUES (:user_id, :post_id, :body, :created_at, :updated_at)";
+        $sql = "INSERT INTO comments (user_id, body, post_id, created_at, updated_at) VALUES (:user_id, :body, :post_id, :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
+                'user_id' => $user_id,
+                'post_id' => $post_id,
                 'body' => $body,
+             
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);

@@ -17,10 +17,16 @@ class commentsController extends Controller
     function create()
     {
         require (ROOT . 'Models/user.php');  
+        require (ROOT . 'Models/post.php');  
 
         $users = new User();
             
             $d['users'] = $users->showAllUsers();
+            $this->set($d);
+
+            $posts = new Post();
+            
+            $d['posts'] = $posts->showAllPosts();
             $this->set($d);
 
         if (isset($_POST["body"]))
@@ -30,7 +36,7 @@ class commentsController extends Controller
             $comment= new Comment();
             
 
-            if ($comment->create($_POST["body"]))
+            if ($comment->create($_POST["body"],$_POST['user'],$_POST['post']))
             {
                 header("Location: " . WEBROOT . "comments/index");
             }
