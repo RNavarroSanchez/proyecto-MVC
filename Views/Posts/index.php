@@ -17,7 +17,7 @@
             echo "<td>" . $post['id'] . "</td>";
             echo "<td>" . $post['title'] . "</td>";
            
-            echo "<td class='text-center'><a class='btn btn-info btn-xs' href=" . WEBROOT . 'posts/edit/'.$post["id"] . " ><span class='glyphicon glyphicon-edit'></span> Editar</a> <a href=" . WEBROOT . 'posts/delete/'.$post["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a></td>";
+            echo "<td class='text-center'><a href=" . WEBROOT . 'posts/delete/'.$post["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a></td>";
             echo "</tr>";
         }
         ?>

@@ -18,10 +18,13 @@ class postsController extends Controller
     {
         require(ROOT . 'Models/post.php');
 
-        $comment = new Comment();
-        if ($comment->delete($id))
+        $posts = new Post();
+        if ($posts->delete($id))
         {
             header("Location: " . WEBROOT . "posts/index");
+        }
+        else{
+            header("Location: " . WEBROOT . "posts/error");
         }
     }
 

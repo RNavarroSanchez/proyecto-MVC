@@ -47,10 +47,21 @@ class Post extends Model
    
     public function delete($id)
     {
-        $sql = 'DELETE FROM user WHERE id = ?';
+       /*  $borarcomentarios = 'DELETE FROM comments where post_id= ?';    
+        try{   
+            $req = Database::getBdd()->prepare($borarcomentarios);
+            return $req->execute([$id]);
+            }
+            catch(PDOException $e){
+                print_r($e->getMessage());
+                }
+               */ 
+      
+        $sql = 'DELETE FROM posts WHERE id = ?';
         try{   
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([$id]);
+       
         }
         catch(PDOException $e){
             print_r($e->getMessage());
