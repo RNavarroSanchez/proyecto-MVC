@@ -6,7 +6,6 @@
         <tr>
             <th>Email</th>
             <th>Nombre</th>
-
             <th class="text-center">Users</th>
         </tr>
         </thead>

@@ -3,7 +3,7 @@ class User extends Model
 {
     public function create($email,$name,$password)
     {
-        $sql = "INSERT INTO users (id, email , name , password, created_at, updated_at) VALUES (:id, :email , :name , :password, :created_at, :updated_at)";
+        $sql = "INSERT INTO users (email , name , password, created_at, updated_at) VALUES (:email , :name , :password, :created_at, :updated_at)";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
@@ -21,7 +21,7 @@ class User extends Model
 
     public function showUser($id)
     {
-        $sql = "SELECT id FROM users WHERE id =" . $id;
+        $sql = "SELECT * FROM users WHERE id =" . $id;
         try{
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
@@ -44,15 +44,16 @@ class User extends Model
             print_r($e->getMessage());
         }
     }
-    public function edit($id,$name, $password)
+    public function edit($id, $name, $email)
     {
-        $sql = "UPDATE users SET name = :name, password = :password  WHERE user_id = :user_id";
+        $sql = "UPDATE users SET name = :name, email = :email, updated_at = :updated_at  WHERE id = :id";
         try{
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([
-                'user_id' => $id,
+                'id' => $id,
                 'name' => $name,
-                'password' => $password  
+                'email' => $email,
+                'updated_at' => date('Y-m-d H:i:s')
             ]);
         }
         catch(PDOException $e){
@@ -62,7 +63,7 @@ class User extends Model
 
     public function delete($id)
     {
-        $sql = 'DELETE FROM user WHERE id = ?';
+        $sql = 'DELETE FROM users WHERE id = ?';
         try{   
             $req = Database::getBdd()->prepare($sql);
             return $req->execute([$id]);

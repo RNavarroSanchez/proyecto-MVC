@@ -9,8 +9,7 @@ class Comment extends Model
             return $req->execute([
                 'user_id' => $user_id,
                 'post_id' => $post_id,
-                'body' => $body,
-             
+                'body' => $body,      
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s')
             ]);
