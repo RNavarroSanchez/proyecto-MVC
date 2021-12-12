@@ -85,5 +85,27 @@ class Comment extends Model
             print_r($e->getMessage());
         }
     }
+    public function deleteAllCommentsPost($id)
+    {
+        $sql = 'DELETE FROM comments WHERE post_id = ?';
+        try{   
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute([$id]);
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
+    public function deleteAllCommentsUser($id)
+    {
+        $sql = 'DELETE FROM comments WHERE user_id = ?';
+        try{   
+            $req = Database::getBdd()->prepare($sql);
+            return $req->execute([$id]);
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
 }
 ?>

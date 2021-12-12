@@ -17,6 +17,16 @@ class postsController extends Controller
     function delete($id)
     {
         require(ROOT . 'Models/post.php');
+        require(ROOT . 'Models/comment.php');  
+        $comment = new Comment();
+
+        if ($comment->deleteAllCommentsPost($id))
+        {
+            header("Location: " . WEBROOT . "posts/index");
+        }
+        else{
+            header("Location: " . WEBROOT . "posts/error");
+        }
 
         $posts = new Post();
         if ($posts->delete($id))
@@ -26,6 +36,8 @@ class postsController extends Controller
         else{
             header("Location: " . WEBROOT . "posts/error");
         }
+      
+
     }
     function detail($id)
     {

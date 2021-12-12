@@ -71,7 +71,26 @@ class usersController extends Controller
     function delete($id)
     {
         require(ROOT . 'Models/user.php');
+        require(ROOT . 'Models/comment.php');
+        require(ROOT . 'Models/post.php');
+        $comment= new Comment();
 
+        if ($comment->deleteAllCommentsUser($id))
+        {
+            header("Location: " . WEBROOT . "posts/index");
+        }
+        else{
+            header("Location: " . WEBROOT . "posts/error");
+        }
+
+        $posts = new Post();
+        if ($posts->deleteAllPosts($id))
+        {
+            header("Location: " . WEBROOT . "posts/index");
+        }
+        else{
+            header("Location: " . WEBROOT . "posts/error");
+        }
         $user= new User();
         if ($user->delete($id))
         {
