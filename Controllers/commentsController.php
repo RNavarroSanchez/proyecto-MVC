@@ -64,6 +64,23 @@ class commentsController extends Controller
         $this->render("edit");
     }
 
+   public function detail($id)
+    {
+        require(ROOT . 'Models/comment.php');
+       
+       
+        $nombre= new Comment();
+        $d["nombre"] = $nombre->showUserComment($id);
+        $this->set($d);
+
+        $detail= new Comment();
+
+        $d["detail"] = $detail->showComment($id);
+        $this->set($d);
+        
+        $this->render("detail");
+    }
+
     function delete($id)
     {
         require(ROOT . 'Models/comment.php');

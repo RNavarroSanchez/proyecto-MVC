@@ -21,7 +21,7 @@ class Post extends Model
 
     public function showPost($id)
     {
-        $sql = "SELECT id FROM posts WHERE id =" . $id;
+        $sql = "SELECT * FROM posts WHERE id =" . $id;
         try{
             $req = Database::getBdd()->prepare($sql);
             $req->execute();

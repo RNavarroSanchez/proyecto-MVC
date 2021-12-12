@@ -27,6 +27,15 @@ class postsController extends Controller
             header("Location: " . WEBROOT . "posts/error");
         }
     }
+    function detail($id)
+    {
+        require(ROOT . 'Models/post.php');
+        $detail= new Post();
+
+        $d["detail"] = $detail->showPost($id);
+        $this->set($d);
+        $this->render("detail");
+    }
 
     function error($m){
         $d["error"] = $m;

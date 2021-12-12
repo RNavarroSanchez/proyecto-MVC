@@ -15,7 +15,7 @@ class usersController extends Controller
 
     function create()
     {
-        if (isset($_POST["email"]))
+        if (isset($_POST["email"],$_POST["name"]))
         {
             require(ROOT . 'Models/user.php');
 
@@ -38,7 +38,7 @@ class usersController extends Controller
 
         $d["user"] = $user->showUser($id);
 
-        if (isset($_POST["name"]))
+        if (isset($_POST["name"],$_POST["name"]))
         {
             if ($user->edit($id, $_POST["name"],$_POST["email"]))
             {
@@ -48,6 +48,25 @@ class usersController extends Controller
         $this->set($d);
         $this->render("edit");
     }
+        function detail($id)
+    {
+        require(ROOT . 'Models/user.php');
+       
+        $comments = new User();
+        $d["comments"] = $comments->showAllcommentsUser($id);
+        $this->set($d);
+
+        $posts = new User();
+        $d["posts"] = $posts->showAllpostsUser($id);
+        $this->set($d);
+       
+
+        $detail= new User();
+        $d["detail"] = $detail->showUser($id);
+        $this->set($d);
+        $this->render("detail");
+    }
+
 
     function delete($id)
     {

@@ -31,6 +31,18 @@ class Comment extends Model
             print_r($e->getMessage());
         }
     }
+       public function showUserComment($id)
+    {
+        $sql = "SELECT * FROM users where id = (SELECT user_id from comments where id =" . $id.")";
+        try{
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
 
     public function showAllcomments()
     {

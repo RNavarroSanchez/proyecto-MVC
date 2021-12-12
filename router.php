@@ -9,7 +9,7 @@ class Router
 
         if ($url == WEBROOT)
         {
-            $request->controller = "comments";
+            $request->controller = "posts";
             $request->action = "index";
             $request->params = [];
         }

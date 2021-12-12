@@ -5,7 +5,7 @@
       
         <tr>
             <th>ID</th>
-            <th>Comentario</th>
+            <th>Titulo</th>
 
             <th class="text-center">Accion</th>
         </tr>
@@ -16,8 +16,7 @@
             echo '<tr>';
             echo "<td>" . $post['id'] . "</td>";
             echo "<td>" . $post['title'] . "</td>";
-           
-            echo "<td class='text-center'><a href=" . WEBROOT . 'posts/delete/'.$post["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a></td>";
+            echo "<td class='text-center'><a href=" . WEBROOT . 'posts/delete/'.$post["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a><a href=" . WEBROOT . 'posts/detail/'.$post["id"] . " class='btn btn-secondary btn-xs'><span class='glyphicon glyphicon-remove'></span> Detalle</a> </td>";
             echo "</tr>";
         }
         ?>

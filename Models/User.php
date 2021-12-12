@@ -31,6 +31,7 @@ class User extends Model
             print_r($e->getMessage());
         }
     }
+  
 
     public function showAllUsers()
     {
@@ -44,6 +45,34 @@ class User extends Model
             print_r($e->getMessage());
         }
     }
+
+  
+
+    public function showAllcommentsUser($id)
+    {
+        $sql = " SELECT * FROM comments where user_id = (SELECT id from users where id =".$id.")";
+        try{
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
+    public function showAllpostsUser($id)
+    {
+        $sql = " SELECT * FROM posts where user_id = (SELECT id from users where id =".$id.")";
+        try{
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetchAll();
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
+
     public function edit($id, $name, $email)
     {
         $sql = "UPDATE users SET name = :name, email = :email, updated_at = :updated_at  WHERE id = :id";
