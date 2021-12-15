@@ -38,7 +38,7 @@ class usersController extends Controller
 
         $d["user"] = $user->showUser($id);
 
-        if (isset($_POST["name"],$_POST["name"]))
+        if (isset($_POST["name"],$_POST["email"]))
         {
             if ($user->edit($id, $_POST["name"],$_POST["email"]))
             {
@@ -73,13 +73,13 @@ class usersController extends Controller
         require(ROOT . 'Models/user.php');
         require(ROOT . 'Models/comment.php');
         require(ROOT . 'Models/post.php');
-        $commentpost= new Comment();
 
-       
-        if ($commentpost->deleteAllCommentsPost($id))
+        
+        $comment= new Comment();
+        if($comment->deleteAllCommentsUser($id))
         {
-            $comment= new Comment();
-            if ($comment->deleteAllCommentsUser($id))
+            $commentpost= new Comment();
+           if ($commentpost->deleteAllCommentsPost($id))
             {
                 $posts = new Post();
                   if ($posts->deleteAllPosts($id))

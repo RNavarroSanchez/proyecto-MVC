@@ -44,6 +44,7 @@ class Post extends Model
             print_r($e->getMessage());
         }
     }
+    
    
     public function delete($id)
     {

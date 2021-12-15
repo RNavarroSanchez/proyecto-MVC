@@ -46,8 +46,17 @@ class postsController extends Controller
 
         $d["detail"] = $detail->showPost($id);
         $this->set($d);
+
+        require(ROOT . 'Models/comment.php');
+
+        $comment= new Comment();
+
+        $d["comment"] = $comment->commentsOfPost($id);
+
+        $this->set($d);
         $this->render("detail");
     }
+    
 
     function error($m){
         $d["error"] = $m;

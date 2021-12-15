@@ -107,5 +107,17 @@ class Comment extends Model
             print_r($e->getMessage());
         }
     }
+    public function commentsOfPost($id)
+    {
+        $sql = 'SELECT * FROM comments WHERE post_id = '.$id;
+        try{
+            $req = Database::getBdd()->prepare($sql);
+            $req->execute();
+            return $req->fetch();
+        }
+        catch(PDOException $e){
+            print_r($e->getMessage());
+        }
+    }
 }
 ?>

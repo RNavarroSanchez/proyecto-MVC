@@ -16,7 +16,7 @@
             echo "<td>" . $user['email'] . "</td>";
             echo "<td>" . $user['name'] . "</td>";
            
-            echo "<td class='text-center'><a class='btn btn-info btn-xs' href=" . WEBROOT . 'users/edit/'.$user["id"] . " ><span class='glyphicon glyphicon-edit'></span> Editar</a> <a href=" . WEBROOT . 'users/delete/'.$user["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a><a href=" . WEBROOT . 'users/detail/'.$user["id"] . " class='btn btn-secondary btn-xs'><span class='glyphicon glyphicon-remove'></span> Detalle</a> </td>";
+            echo "<td class='text-center'><a class='btn btn-info btn-xs' href=" . WEBROOT . 'users/edit/'.$user["id"] . " ><span class='glyphicon glyphicon-edit'></span> Editar</a> <a href=" . WEBROOT . 'users/delete/'.$user["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a> <a href=" . WEBROOT . 'users/detail/'.$user["id"] . " class='btn btn-secondary btn-xs'><span class='glyphicon glyphicon-remove'></span> Detalle</a> </td>";
             echo "</tr>";
         }
         ?>

@@ -7,21 +7,30 @@
     <p class="lead">  Id:  <?php echo $detail['id'] ?></p>
     <p class="lead">  Correo:  <?php echo $detail['email'] ?></p>
    
-    <h1 class="display-3"> Comentarios Creados</h1>
+   
   </div>
 </div>
 <?php
 
+if(count($comments) != 0){
+ echo  "<h1 class='display-3'> Comentarios Creados</h1> ";
  foreach ($comments as $comment) {
-      echo "<p class='lead'>".$comment["body"] ."</p>";
+  echo "<p class='lead'>".$comment["body"] ."</p>";
  }
- ?> <h1 class="display-3"> Post Creados</h1>
- </div>
+}
+ 
+ 
+ 
+ if(count($posts) !=0){
+  echo "<h1 class='display-3'> Post Creados</h1>
+ </div>";
 
-<?php
+
 foreach ($posts as $post) {
      echo "<p class='lead'>".$post["title"] ."</p>";
 }
+ }
+ 
 ?>
   </div>
 </div>
