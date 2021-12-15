@@ -113,7 +113,7 @@ class Comment extends Model
         try{
             $req = Database::getBdd()->prepare($sql);
             $req->execute();
-            return $req->fetch();
+            return $req->fetchall();
         }
         catch(PDOException $e){
             print_r($e->getMessage());

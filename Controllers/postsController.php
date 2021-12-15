@@ -49,9 +49,9 @@ class postsController extends Controller
 
         require(ROOT . 'Models/comment.php');
 
-        $comment= new Comment();
+        $comments= new Comment();
 
-        $d["comment"] = $comment->commentsOfPost($id);
+        $d["comments"] = $comments->commentsOfPost($id);
 
         $this->set($d);
         $this->render("detail");

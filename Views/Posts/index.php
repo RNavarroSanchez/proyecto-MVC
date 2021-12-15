@@ -19,7 +19,11 @@
             echo "<td>" . $post['id'] . "</td>";
             echo "<td>" . $post['title'] . "</td>";
             echo "<td>" . $post['status'] . "</td>";
-            echo "<td class='text-center'><a href=" . WEBROOT . 'posts/delete/'.$post["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a> <a href=" . WEBROOT . 'posts/detail/'.$post["id"] . " class='btn btn-secondary btn-xs'><span class='glyphicon glyphicon-remove'></span> Detalle</a> </td>";
+            echo "<td class='text-center'>
+            
+            <a href=" . WEBROOT . 'posts/detail/'.$post["id"] . " ><span class='fas fa-eye p-2'></span></a>
+            <a href=" . WEBROOT . 'posts/delete/'.$post["id"] . "><span class='far fa-trash-alt p-2'></span></a>  
+            </td>";
             echo "</tr>";
         }
         ?>

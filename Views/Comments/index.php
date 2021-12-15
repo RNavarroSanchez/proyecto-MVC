@@ -16,11 +16,11 @@
         {
             echo '<tr>';
             echo "<td>" . $comment['id'] . "</td>";
-            echo "<td>" . $comment['body'] . "</td>";
+            echo "<td class='w-75'>" . $comment['body'] . "</td>";
             echo "<td class='text-center'>
-            <a class='btn btn-info btn-xs' href=" . WEBROOT . 'comments/edit/'.$comment["id"] . " ><span class='glyphicon glyphicon-edit'></span> Editar</a> 
-            <a href=" . WEBROOT . 'comments/delete/'.$comment["id"] . " class='btn btn-danger btn-xs'><span class='glyphicon glyphicon-remove'></span> Borrar</a> 
-            <a href=" . WEBROOT . 'comments/detail/'.$comment["id"] . " class='btn btn-secondary btn-xs'><span class='glyphicon glyphicon-remove'></span> Detalle</a> 
+            <a href=" . WEBROOT . 'comments/detail/'.$comment["id"] . "  ><span class='fas fa-eye w-33  p-2 align-middle'></span></a>
+            <a href=" . WEBROOT . 'comments/edit/'.$comment["id"] . " ><span class='fas fa-edit w-33 p-2 align-middle'></span></a>
+            <a href=" . WEBROOT . 'comments/delete/'.$comment["id"] . " ><span class='far fa-trash-alt p-2 w-33 align-middle'></span></a>
            </td>";
             echo "</tr>";
         }
